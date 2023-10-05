@@ -5,24 +5,24 @@ using namespace std;
 
 class Solution {
 public:
-    int findContentChildren(vector<int>& g, vector<int>& s) {
-        sort(g.begin(), g.end()); // sort the children
-        sort(s.begin(), s.end()); // sort the cookies
-        int i=0, j=0;
-        while ( i < g.size() && j < s.size() ){
-            if ( s[j] >= g[i] ){
-                i++;
+    int findContentChildren(vector<int>& children, vector<int>& cookies) {
+        sort(children.begin(), children.end()); // sort the childrenren
+        sort(cookies.begin(), cookies.end()); // sort the cookiess
+        int child=0, cookie=0;
+        while ( child < children.size() && cookie < cookies.size() ){
+            if ( cookies[cookie] >= children[child] ){
+               child++;
             }
-            j++;
+            cookie++;
         }
-        return j;
+        return child;
     }
 };
 
 int main() {
     Solution sol;
-    vector<int> g = {1,2,3};
-    vector<int> s = {1,1};
-    cout << sol.findContentChildren(g, s) << endl;
+    vector<int> children{1,2,3};
+    vector<int> cookies{1,1};
+    cout << sol.findContentchildren(children, cookies) << endl;
     return 0;
 }
