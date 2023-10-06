@@ -23,6 +23,6 @@ int main() {
     Solution sol;
     vector<int> children{1,2,3};
     vector<int> cookies{1,1};
-    cout << sol.findContentchildren(children, cookies) << endl;
+    cout << sol.findContentChildren(children, cookies) << endl;
     return 0;
 }
