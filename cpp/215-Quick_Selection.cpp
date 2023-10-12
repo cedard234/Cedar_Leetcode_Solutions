@@ -14,31 +14,35 @@ public:
         mt19937 g(rd());
         shuffle(nums.begin(), nums.end(), g);
 
-        return this->quick_selection(nums, k-1, 0, nums.size()-1);
+        return this->QuickSelect(nums, 0, nums.size()-1, nums.size()-k+1);
     }
 
-    int quick_selection(vector<int> & nums, int target, int left, int right){
-        if (left == right) return nums[left];
+    int QuickSelect(vector<int> &a, int left, int right, int k)
+    {
+        int pivot = a[ left ];
 
-        // quick select whichever element
-        int i=left, j=left;
-        while(j<right){
-            if (nums[j] <= nums[right]){
-                j++;
-            } else {
-                swap(nums[i], nums[j]);
+        int i = left;
+        int j = right;
+        while( i < j )
+        {
+            //NOTE: ">=" not ">"
+            while ( a[j] >= pivot && i < j )
+                j--;
+            a[i] = a[j];
+
+            while ( a[i] <= pivot && i < j )
                 i++;
-                j++;
-            }
+            a[j] = a[i];
         }
-        swap(nums[i], nums[right]);
-        if (i == target) return nums[i];
-        else if (i < target){
-            return this->quick_selection(nums, target-i, i, right);
-        } else {
-            return this->quick_selection(nums, i-target, left, i-1);
-        }
+        a[i] = pivot;
 
+        //there are i+1 numbers from a[0] to a[i]
+        if( k < i + 1 )
+            return QuickSelect( a, left, i - 1 , k);
+        else if( k > i + 1 )
+            return QuickSelect( a, i + 1, right, k);
+        else
+            return a[i];
     }
 };
 
