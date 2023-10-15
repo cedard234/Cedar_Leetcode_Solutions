@@ -24,6 +24,7 @@ island.push({x, y});
 area = max(area, local_area);
 }
 }
+
 }
 return area;
 }
