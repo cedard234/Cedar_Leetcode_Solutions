@@ -39,7 +39,7 @@ public:
         else{
             canFlowTo[row_index][column_index] = true;
             int horizontal, vertical;
-            for (int k = 0; k < 5; k++){
+            for (int k = 0; k < 4; k++){
                 horizontal = column_index + direction[k];
                 vertical =  row_index + direction[k+1];
                 if (horizontal >= 0 && horizontal < heights[0].size() && vertical >= 0 && vertical < heights.size()){
