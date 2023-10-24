@@ -1,3 +1,0 @@
-              - name: C++ Style Check
-                uses: coleaeason/actions-uncrustify@v1
-            
